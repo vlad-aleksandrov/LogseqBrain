@@ -26,6 +26,7 @@ Current shared references:
 - `skills/_shared/path-resolution.md` — host-aware graph path resolution (Cowork vs. Claude Code/Copilot/Gemini)
 - `skills/_shared/journey-log.md` — one-line activity-trail write logic, called by every brain skill
 - `skills/_shared/staleness.md` — stale-project rules (used by `brain-load` and `brain-status`)
+- `skills/_shared/section-locator.md` — grep-anchored section-targeted reads (used by `brain-load`, `brain-save`, `brain-status` to avoid full-page reads)
 
 When adding a new shared reference, prefer this directory. Per-skill references stay in `skills/<skill>/references/`.
 
