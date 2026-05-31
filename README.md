@@ -46,7 +46,7 @@ gemini extensions install https://github.com/jame581/LogseqBrain
 After installing, create a Logseq graph (e.g. "ClaudeBrain") and tell the plugin where to find it. Pick one:
 
 - **Environment variable**: `export LOGSEQ_BRAIN_PATH=/path/to/ClaudeBrain` (highest precedence)
-- **Just tell Claude the path** when prompted — Claude saves it to a durable user config file (`%APPDATA%\logseq-brain\config.json` on Windows, `~/.config/logseq-brain/config.json` on macOS/Linux) so you're not asked again, even after plugin reloads
+- **Just tell Claude the path** when prompted — Claude saves it to a durable user config file (`%APPDATA%\logseq-brain\config.json` on Windows; on macOS/Linux `$XDG_CONFIG_HOME/logseq-brain/config.json` if `XDG_CONFIG_HOME` is set, otherwise `~/.config/logseq-brain/config.json`) so you're not asked again, even after plugin reloads
 
 Then say **"init brain"** to set up the graph structure, and **"init brain project MyProject"** to add your first project.
 
@@ -91,4 +91,4 @@ ClaudeBrain/
 
 ## Journey Log
 
-Every brain operation (init / load / save / status / search) leaves a one-line `HH:mm`-prefixed bullet in today's journal under `## Activity` — a low-cost, time-ordered audit trail of what Claude did, when. Disable by adding `"journeyLog": false` to your user config file (`%APPDATA%\logseq-brain\config.json` / `~/.config/logseq-brain/config.json`).
+Every brain operation (init / load / save / status / search) leaves a one-line `HH:mm`-prefixed bullet in today's journal under `## Activity` — a low-cost, time-ordered audit trail of what Claude did, when. Disable by adding `"journeyLog": false` to your user config file (`%APPDATA%\logseq-brain\config.json` on Windows; on macOS/Linux `$XDG_CONFIG_HOME/logseq-brain/config.json` if `XDG_CONFIG_HOME` is set, otherwise `~/.config/logseq-brain/config.json`).
