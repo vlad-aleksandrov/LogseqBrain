@@ -16,7 +16,7 @@ This plugin turns a Logseq graph into Claude's external brain. Claude can read f
 
 ```
 /plugin marketplace add vlad-aleksandrov/LogseqBrain
-/plugin install logseq-brain@second-brain
+/plugin install logseq-brain@second-brain-projects
 ```
 
 ## Setup

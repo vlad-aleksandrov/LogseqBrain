@@ -5,7 +5,7 @@ Personal fork of logseq-brain, packaged as a self-hosted Claude Code plugin.
 ## Repo layout
 
 ```
-.claude-plugin/marketplace.json     # marketplace descriptor (name: second-brain)
+.claude-plugin/marketplace.json     # marketplace descriptor (name: second-brain-projects)
 plugins/logseq-brain/               # plugin package — contents of this dir are what gets installed
   .claude-plugin/plugin.json        # plugin metadata (version, author)
   skills/                           # brain-init, brain-load, brain-save, brain-status
@@ -34,5 +34,5 @@ CONTRIBUTING.md                     # developer notes
 
 ```
 /plugin marketplace add vlad-aleksandrov/LogseqBrain
-/plugin install logseq-brain@second-brain
+/plugin install logseq-brain@second-brain-projects
 ```
