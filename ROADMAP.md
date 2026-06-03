@@ -3,7 +3,7 @@
 ## Shipped
 
 ### v1.0.0 — Self-hosted fork + v0.7.0 fixes
-- Repo restructured as self-hosted marketplace (`vlad-brain`): plugin moved to `plugins/logseq-brain/`, `marketplace.json` added at repo root. Install via `/plugin marketplace add vlad-aleksandrov/LogseqBrain` + `/plugin install logseq-brain@vlad-brain`.
+- Repo restructured as self-hosted marketplace (`logseq-brain`): plugin moved to `plugins/logseq-brain/`, `marketplace.json` added at repo root. Install via `/plugin marketplace add vlad-aleksandrov/LogseqBrain` + `/plugin install logseq-brain@logseq-brain`.
 - **Durable config location**: config moved from plugin cache root (wiped on reinstall/upgrade) to `~/.config/logseq-brain/config.json` (XDG standard). Legacy `.brain-config.json` at plugin root still read as fallback with migration warning.
 - **`gitAutoPush` config key**: brain-save now commits the graph after every save and optionally pushes when `"gitAutoPush": true` in config.
 - **`HH:mm` time prefix on activity bullets**: journey-log entries now prefix each bullet with the current time from `date +%H:%M` — restores the quick-scan chronological signal that was removed in v0.6.0.
