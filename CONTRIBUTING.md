@@ -6,7 +6,7 @@ Personal fork of [jame581/LogseqBrain](https://github.com/jame581/LogseqBrain). 
 
 ```
 .claude-plugin/
-  marketplace.json        # marketplace descriptor (name: logseq-brain)
+  marketplace.json        # marketplace descriptor (name: second-brain)
 plugins/logseq-brain/
   .claude-plugin/
     plugin.json           # plugin metadata (name, version, author)
