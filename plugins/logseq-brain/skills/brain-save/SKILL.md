@@ -60,7 +60,18 @@ Six categories — see `references/categories.md` for each one's format and rule
 
 9. **Write a journey-log entry** per `skills/_shared/journey-log.md` with activity line: `saved [[Projects/<ProjectName>]]`.
 
-10. **Confirm to the user** in plain language what was saved. List each thing written.
+10. **Commit and optionally push.** Run via Bash using the resolved `graphPath`:
+    ```bash
+    git -C <graphPath> add -A
+    git -C <graphPath> commit -m "brain-save: <short summary of what was saved>"
+    ```
+    Then read `~/.config/logseq-brain/config.json`. If `gitAutoPush` is `true`, also run:
+    ```bash
+    git -C <graphPath> push origin master --quiet &
+    ```
+    If `git commit` exits with "nothing to commit", skip silently.
+
+11. **Confirm to the user** in plain language what was saved. List each thing written.
 
 ## Auto-Suggest Save
 
@@ -72,3 +83,4 @@ See `references/auto-suggest.md`. Suggestion only — never auto-save.
 - All content in bullet-point format. See `CLAUDE.md` for Logseq invariants.
 - When appending, place new entries at the end of the section, before the next `##` heading.
 - If `journals/` doesn't exist, create it (Bash `mkdir -p`) before writing the journal entry.
+- When anchoring surgical Edits: always Read the current section content first. Logseq may have normalized `- ## Heading` → `## Heading` or spaces → tabs. Use the actual format returned by Read as `old_string`, not the originally written format.

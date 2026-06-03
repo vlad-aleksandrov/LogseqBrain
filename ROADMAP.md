@@ -2,6 +2,14 @@
 
 ## Shipped
 
+### v1.0.0 — Self-hosted fork + v0.7.0 fixes
+- Repo restructured as self-hosted marketplace (`vlad-brain`): plugin moved to `plugins/logseq-brain/`, `marketplace.json` added at repo root. Install via `/plugin marketplace add vlad-aleksandrov/LogseqBrain` + `/plugin install logseq-brain@vlad-brain`.
+- **Durable config location**: config moved from plugin cache root (wiped on reinstall/upgrade) to `~/.config/logseq-brain/config.json` (XDG standard). Legacy `.brain-config.json` at plugin root still read as fallback with migration warning.
+- **`gitAutoPush` config key**: brain-save now commits the graph after every save and optionally pushes when `"gitAutoPush": true` in config.
+- **`HH:mm` time prefix on activity bullets**: journey-log entries now prefix each bullet with the current time from `date +%H:%M` — restores the quick-scan chronological signal that was removed in v0.6.0.
+- **Logseq normalization tolerance**: journey-log and brain-save now Read before anchoring surgical Edits; `old_string` is derived from the actual file content (Logseq may normalize `- ## Heading` → `## Heading` and spaces → tabs).
+- Authorship updated: Jan Mesarc → Vlad Aleksandrov. CONTRIBUTING.md stripped to personal developer notes.
+
 ### v0.6.0 — Journey log + token frugality
 - Journey log (`## Activity` section in today's journal, one bullet per brain skill use)
 - Progressive disclosure: each `SKILL.md` split into orchestrator + per-skill `references/` + cross-skill `skills/_shared/` (path-resolution, journey-log, staleness, section-locator)
@@ -39,17 +47,11 @@
 - Save/load cycle against a Logseq graph
 - Initial graph layout (`pages/`, `journals/`, `Index.md`, `Meta.md`)
 
-## Current — v0.7.0 (backlog)
+## Current — v1.1.0 (backlog)
 
-Driven by v0.6.0 first-dogfood findings (2026-05-02):
-
-- **Durable config location.** `.brain-config.json` at the cache plugin root gets wiped on `/reload-plugins` or version bump, breaking path resolution between sessions. Replace with env-var-only contract (`LOGSEQ_BRAIN_PATH`) or a user config dir (`~/.config/logseq-brain/` on macOS/Linux, `%APPDATA%\logseq-brain\` on Windows). Touches `skills/_shared/path-resolution.md`, `CLAUDE.md`, `CONTRIBUTING.md`, and the README install instructions.
-- **Logseq normalization tolerance.** When Logseq parses journals/pages we wrote, it normalizes — drops `- ` from heading bullets, converts indents to tabs, strips empty `## Sessions` headings. Surgical Edits handle this fine via Read-before-Edit, but the algorithm prose in `skills/_shared/journey-log.md` and `skills/brain-save/SKILL.md` assumes our written format survives. Harden explicitly. Possible new `skills/_shared/logseq-format.md` adapter.
-- **Re-add `HH:mm` time prefix to journey-log activity bullets.** Reverses v0.6.0's "no time prefix" design call. The original rationale was "Logseq auto-assigns `created-at::` block metadata" implying inline display, but real-world dogfood (2026-05-02) showed Logseq does NOT auto-render those timestamps visibly. Without prefixes the activity trail loses its quick-scan chronological signal. Touches `skills/_shared/journey-log.md`, activity-line examples in all four `SKILL.md`, and the v0.6.0 spec events table.
-
-Other open candidates from the Future list will be promoted here once Logseq's roadmap clarifies which is closest to ready.
-
-See `docs/superpowers/specs/2026-05-01-v0.6.0-design.md` for the v0.6.0 design (now shipped).
+- **Activity-line examples in all four SKILL.md** — update to show `HH:mm` prefix format (minor doc consistency pass).
+- **`brain-load` Logseq normalization hardening** — same Read-before-Edit hardening applied in v1.0.0 to brain-save/journey-log; apply to brain-load's section reads.
+- Other candidates from the Future list promoted once Logseq's roadmap clarifies which is closest to ready.
 
 ## Future — informed by Logseq's own roadmap
 

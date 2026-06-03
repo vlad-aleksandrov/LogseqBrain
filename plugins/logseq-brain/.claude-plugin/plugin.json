@@ -1,12 +1,12 @@
 {
   "name": "logseq-brain",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "description": "Persistent memory for Claude using a dedicated Logseq graph. Save and load project context, decisions, and progress across sessions and devices.",
   "author": {
-    "name": "Jan Mesarc"
+    "name": "Vlad Aleksandrov"
   },
   "license": "MIT",
-  "homepage": "https://github.com/jame581/LogseqBrain",
-  "repository": "https://github.com/jame581/LogseqBrain",
+  "homepage": "https://github.com/vlad-aleksandrov/LogseqBrain",
+  "repository": "https://github.com/vlad-aleksandrov/LogseqBrain",
   "keywords": ["logseq", "memory", "brain", "persistence", "sync"]
 }

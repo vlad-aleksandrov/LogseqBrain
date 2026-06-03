@@ -1,8 +1,8 @@
 # Logseq Brain
 
-[![Version](https://img.shields.io/github/v/tag/jame581/LogseqBrain?label=version&color=blue)](https://github.com/jame581/LogseqBrain/releases)
-[![License](https://img.shields.io/github/license/jame581/LogseqBrain?color=green)](./LICENSE)
-[![Skillsmith](https://img.shields.io/badge/marketplace-skillsmith-8A2BE2)](https://github.com/jame581/skillsmith)
+[![Version](https://img.shields.io/github/v/tag/vlad-aleksandrov/LogseqBrain?label=version&color=blue)](https://github.com/vlad-aleksandrov/LogseqBrain/releases)
+[![License](https://img.shields.io/github/license/vlad-aleksandrov/LogseqBrain?color=green)](./LICENSE)
+[![Fork of](https://img.shields.io/badge/fork%20of-jame581%2FLogseqBrain-grey)](https://github.com/jame581/LogseqBrain)
 
 Persistent memory for Claude using a dedicated [Logseq](https://logseq.com) graph. Save and load project context, decisions, and progress across sessions and devices.
 
@@ -12,42 +12,26 @@ This plugin turns a Logseq graph into Claude's external brain. Claude can read f
 
 ## Install
 
-Logseq Brain ships through the [**skillsmith**](https://github.com/jame581/skillsmith) marketplace.
-
 ### Claude Code
 
 ```
-/plugin marketplace add jame581/skillsmith
-/plugin install logseq-brain@skillsmith
+/plugin marketplace add vlad-aleksandrov/LogseqBrain
+/plugin install logseq-brain@vlad-brain
 ```
-
-### GitHub Copilot CLI
-
-```
-copilot plugin marketplace add jame581/skillsmith
-copilot plugin install logseq-brain@skillsmith
-```
-
-### Gemini CLI
-
-```
-gemini extensions install https://github.com/jame581/LogseqBrain
-```
-
-### Cowork (Desktop App)
-
-1. Create a new Logseq graph called "ClaudeBrain" (or any name you prefer).
-2. Install this plugin in Claude (accept the `.plugin` file).
-3. Say "init brain" — Claude will ask you to select the graph folder.
-4. Say "init brain project MyProject" to add your first project.
 
 ## Setup
 
 After installing, create a Logseq graph (e.g. "ClaudeBrain") and tell the plugin where to find it. Pick one:
 
 - **Environment variable**: `export LOGSEQ_BRAIN_PATH=/path/to/ClaudeBrain`
-- **Config file**: create `.brain-config.json` in the plugin root with `{"graphPath": "/path/to/ClaudeBrain"}`
+- **Config file**: create `~/.config/logseq-brain/config.json`:
+  ```bash
+  mkdir -p ~/.config/logseq-brain
+  echo '{"graphPath": "/path/to/ClaudeBrain"}' > ~/.config/logseq-brain/config.json
+  ```
 - **Just tell Claude the path** when prompted
+
+To enable automatic git push after each save, add `"gitAutoPush": true` to the config file.
 
 Then say **"init brain"** to set up the graph structure, and **"init brain project MyProject"** to add your first project.
 
@@ -92,4 +76,4 @@ ClaudeBrain/
 
 ## Journey Log
 
-Every brain operation (init / load / save / status / search) leaves a one-line bullet in today's journal under `## Activity` — a low-cost audit trail of what Claude did, when. Disable by adding `"journeyLog": false` to `.brain-config.json`.
+Every brain operation (init / load / save / status / search) leaves a one-line `HH:mm` timestamped bullet in today's journal under `## Activity` — a low-cost audit trail of what Claude did, when. Disable by adding `"journeyLog": false` to `~/.config/logseq-brain/config.json`.

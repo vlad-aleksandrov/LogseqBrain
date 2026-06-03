@@ -1,0 +1,22 @@
+{
+  "name": "vlad-brain",
+  "owner": {
+    "name": "Vlad Aleksandrov",
+    "github": "vlad-aleksandrov"
+  },
+  "metadata": {
+    "description": "Vlad's personal Claude Code plugins",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "logseq-brain",
+      "description": "Persistent memory for Claude using a dedicated Logseq graph. Save and load project context, decisions, and progress across sessions and devices.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Vlad Aleksandrov"
+      },
+      "source": "./plugins/logseq-brain"
+    }
+  ]
+}
